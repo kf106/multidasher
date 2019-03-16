@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains multidasher.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function multidasher_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the multidasher module.
+    case 'help.page.multidasher':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Multichain integration for Drupal') . '</p>';
+      return $output;
+
+    default:
+  }
+}

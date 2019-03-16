@@ -1,0 +1,28 @@
+<form [formGroup]="assetForm">
+
+    <mat-form-field class="fullwidth">
+      <input matInput placeholder="Asset name" formControlName="title" maxlength="32" required>
+      <mat-hint>Add your asset name here</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="fullwidth">
+      <input matInput placeholder="Quantity" formControlName="assetQuantity" number required>
+      <mat-hint>Number of units of the asset to issue</mat-hint>
+    </mat-form-field>
+
+    <mat-checkbox type="checkbox" formControlName="assetOpen" color="primary">Allow more units to be issued later</mat-checkbox>
+
+    <mat-form-field class="fullwidth">
+      <mat-select placeholder="Receiving address" formControlName="recipient" required>
+        <mat-option *ngFor="let wallet of wallets" [value]="wallet.address">{{wallet.name}} | {{ wallet.address}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="fullwidth">
+      <input matInput placeholder="Asset description" formControlName="description">
+      <mat-hint>Optional text describing the purpose of the asset</mat-hint>
+    </mat-form-field>
+ 
+    <button [disabled]="assetForm.controls['title'].invalid" (click)="submitForm()" mat-raised-button color="primary">Create asset</button>
+
+</form>

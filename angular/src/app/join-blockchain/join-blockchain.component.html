@@ -1,0 +1,48 @@
+  <mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="blockchainName">
+    <form [formGroup]="blockchainName">
+      <ng-template matStepLabel>Blockchain name</ng-template>
+      <mat-form-field class="fullwidth">
+        <input matInput placeholder="Blockchain name" formControlName="blockchainName" maxlength="32" required>
+      </mat-form-field>
+      <mat-form-field class="fullwidth">
+        <input matInput placeholder="Blockchain URL" formControlName="blockchainIp" required>
+      </mat-form-field>
+          <mat-form-field class="fullwidth">
+        <input matInput placeholder="Blockchain port number" formControlName="blockchainPort" required>
+      </mat-form-field>
+
+      <div>
+        <button (click)="initiateBlockchain()" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="blockchainController">
+    <form [formGroup]="blockchainController">
+      <ng-template matStepLabel>Register on blockchain</ng-template>
+      <mat-form-field class="fullwidth">
+        <input matInput placeholder="Your email" formControlName="email" required>
+      </mat-form-field>
+          <mat-form-field class="fullwidth">
+        <input matInput placeholder="Your first name" formControlName="firstName" required>
+      </mat-form-field>
+          <mat-form-field class="fullwidth">
+        <input matInput placeholder="Your last name" formControlName="lastName" required>
+      </mat-form-field>
+      <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button (click)="registerBlockchain()" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+ <mat-step>
+    <ng-template matStepLabel>Connect</ng-template>
+    Connect to blockchain
+    <div>
+      <button mat-button matStepperPrevious>Cancel</button>
+      <button mat-button>Connect now</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
