@@ -4,6 +4,8 @@
 
 [MultiDasher](http://www.multidasher.org/) is an open source admin dashboard for [MultiChain](http://www.multichain.com/) blockchains, based on [Drupal 8](http://www.drupal.org/). And much, much more...
 
+Look in the docs folder for white papers describing the concept.
+
 ## Architecture
 
 In MultiDasher:
